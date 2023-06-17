@@ -42,4 +42,4 @@ def get_menu (restaurant_url):
     return file_name
 
 if __name__ == '__main__':
-    app.run(port=5000,debug=True) 
+    app.run(port=8666,debug=True) 
