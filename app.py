@@ -48,5 +48,10 @@ def get_menu (restaurant_url):
     writer.close()
     return file_name
 
+
+@app.route('/hello')
+def hello ():
+    return 'Hello, World!'
+
 if __name__ == '__main__':
     app.run(port=8666,debug=True) 
