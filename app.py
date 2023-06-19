@@ -38,6 +38,8 @@ def get_menu (restaurant_url):
     ls_dict = []
     for item in soup.select('.sc-fEUNkw'):
         for food in range(food_len):
+            print(i)
+            print(item)
             data = {}
             data = {'sr_no': str(i + 1), 'food': item.select('.sc-1s0saks-15')[i].get_text().strip(),'price': item.select('.sc-17hyc2s-1')[i].get_text().strip(), 'description': item.select('.sc-1s0saks-12')[i].get_text().strip()}
             i = i + 1
