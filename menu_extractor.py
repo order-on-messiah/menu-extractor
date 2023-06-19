@@ -1,4 +1,5 @@
 import os
+import io
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
@@ -11,7 +12,13 @@ def downloadFile ():
     restaurant_url = request.args.get('restaurant_url')
     file_name = get_menu(restaurant_url)
     path = os.getcwd() + "/" + file_name
-    return send_file(path, as_attachment=True)
+    return_data = io.BytesIO()
+    with open(path, 'rb') as fo:
+        return_data.write(fo.read())
+    return_data.seek(0)
+    os.remove(path)
+    return send_file(return_data, mimetype='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                     attachment_filename=file_name)
 
 
 def get_menu (restaurant_url):
