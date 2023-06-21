@@ -29,10 +29,8 @@ def get_menu (restaurant_url):
 
     soup=BeautifulSoup(response.content,'lxml')
     link = soup.select_one('.sc-1s0saks-15')
-    # next_md_headlines = link.find_all_next("h4", {"class": "sc-1s0saks-15"})
-    # food_len = len(next_md_headlines) + 1
-    food_len=101
-    print('data: ' +str(food_len))
+    next_md_headlines = link.find_all_next("h4", {"class": "sc-1s0saks-15"})
+    food_len = len(next_md_headlines) + 1
     #print(soup.select('[data-lid]'))
     i=0
     ls_dict = []
